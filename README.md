@@ -29,3 +29,8 @@ Returns the value of `@param`. If `@param` doesn't exist, an empty string (`""`)
 
 #### `getLocation()`
 Returns a string built from `{pathname}{search}{hash}`.
+
+## Changelog
+
+#### v0.1.0
+ - Initial release
