@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Url.js by jillix</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Url.js</h1>
+        <h2>A lightweight JavaScript library that modifies the page url without refresh.</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/jillix/url.js/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/jillix/url.js/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/jillix/url.js" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="urljs" class="anchor" href="#urljs"><span class="octicon octicon-link"></span></a>url.js</h1>
+
+<p>A lightweight JavaScript library that modifies the page url without refresh.</p>
+
+<h2>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<p>After importing this library in the page you can do:</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// `?param=value`</span>
+<span class="nx">Url</span><span class="p">.</span><span class="nx">addSearch</span><span class="p">(</span><span class="s2">"param"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">);</span>
+<span class="c1">// `?param=value&amp;param1=value1`</span>
+<span class="nx">Url</span><span class="p">.</span><span class="nx">addSearch</span><span class="p">(</span><span class="s2">"param1"</span><span class="p">,</span> <span class="s2">"value1"</span><span class="p">);</span>
+<span class="c1">// `?param=foo&amp;param1=value1`</span>
+<span class="nx">Url</span><span class="p">.</span><span class="nx">addSearch</span><span class="p">(</span><span class="s2">"param"</span><span class="p">,</span> <span class="s2">"foo"</span><span class="p">);</span>
+</pre></div>
+
+<h2>
+<a name="methods" class="anchor" href="#methods"><span class="octicon octicon-link"></span></a>Methods</h2>
+
+<h4>
+<a name="addsearch-param-value" class="anchor" href="#addsearch-param-value"><span class="octicon octicon-link"></span></a><code>addSearch (@param, @value</code>)</h4>
+
+<p>Adds or modifies a parameter.</p>
+
+<ul>
+<li>
+<code>@param</code> is the parameter that you want to add</li>
+<li>
+<code>@value</code> is the value of the added parameter</li>
+</ul><h4>
+<a name="querystringparam" class="anchor" href="#querystringparam"><span class="octicon octicon-link"></span></a><code>queryString(@param)</code>
+</h4>
+
+<p>Returns the value of <code>@param</code>. If <code>@param</code> doesn't exist, an empty string (<code>""</code>) will be returned.</p>
+
+<h4>
+<a name="getlocation" class="anchor" href="#getlocation"><span class="octicon octicon-link"></span></a><code>getLocation()</code>
+</h4>
+
+<p>Returns a string built from <code>{pathname}{search}{hash}</code>.</p>
+
+<h2>
+<a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h2>
+
+<h4>
+<a name="v010" class="anchor" href="#v010"><span class="octicon octicon-link"></span></a>v0.1.0</h4>
+
+<ul>
+<li>Initial release</li>
+</ul>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
