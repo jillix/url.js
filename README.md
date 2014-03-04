@@ -34,3 +34,6 @@ Returns a string built from `{pathname}{search}{hash}`.
 
 #### v0.1.0
  - Initial release
+
+## License
+See LICENSE file.
