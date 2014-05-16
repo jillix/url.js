@@ -97,14 +97,14 @@
     }
 
     /**
-     * addSearch
+     * updateSearchParam
      * Adds a parameter=value to the url (without page refresh)
      *
      * @param param: the parameter name
      * @param value: the parameter value
      * @return
      */
-    function updateSearch(param, value) {
+    function updateSearchParam (param, value) {
 
         // parse query
         var searchParsed = parseQuery();
@@ -136,7 +136,7 @@
     // export the Url object
     window.Url = {
         getLocation: getLocation
-      , updateSearch: updateSearch
+      , updateSearchParam: updateSearchParam
       , queryString: queryString
     };
 })(window);
