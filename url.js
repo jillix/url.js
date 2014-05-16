@@ -101,7 +101,8 @@
      * Adds a parameter=value to the url (without page refresh)
      *
      * @param param: the parameter name
-     * @param value: the parameter value
+     * @param value: the parameter value (if value not provided,
+     * the parameter is deleted and url updated)
      * @return
      */
     function updateSearchParam (param, value) {
