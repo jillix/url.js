@@ -104,7 +104,7 @@
      * @param value: the parameter value
      * @return
      */
-    function addSearch(param, value) {
+    function updateSearch(param, value) {
 
         // parse query
         var searchParsed = parseQuery();
@@ -136,7 +136,7 @@
     // export the Url object
     window.Url = {
         getLocation: getLocation
-      , addSearch:   addSearch
+      , updateSearch: updateSearch
       , queryString: queryString
     };
 })(window);
