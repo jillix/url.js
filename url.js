@@ -16,11 +16,19 @@
      *  Thanks: http://stackoverflow.com/a/901144/1420197
      *
      * */
-    function queryString (name) {
+    function queryString (name, notDecoded) {
         name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
             results = regex.exec(location.search);
-        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        if (results == null) {
+            return "";
+        } else {
+            var encoded = results[1].replace(/\+/g, " ");
+            if (notDecoded) {
+                return encoded;
+            }
+            return decodeURIComponent(encoded)
+        }
     }
 
     /*
@@ -38,36 +46,35 @@
      * */
     function addSearch(param, value) {
 
-
-        // get location search string
+        // current search, old parameter value
         var cSearch     = location.search
+          , newSearch   = cSearch
+          , cParamValue = queryString(param, true)
+          ;
 
-            // get current parameter value
-          , cParamValue = queryString(param)
-
-            // new search string will be modified
-          , newSearch   = cSearch;
+        // encode value
+        value = encodeURIComponent(value);
 
         // the parameter already exists and it is equal with the value
         if (cParamValue === value) {
             return;
+        }
 
         // the parameter already exists BUT it is NOT equal with the value
-        } else if (cParamValue) {
+        if (cParamValue) {
+
+            // /?param=value%20anotherword&param2=1
 
             // get the index
             var cSearchIndex = cSearch.indexOf("?" + param + "=");
-
-            // nothing found
             if (cSearchIndex < 0) {
-
-                // try again with '&'
                 cSearchIndex = cSearch.indexOf("&" + param + "=");
             }
 
             // get old value
             var oldValue = cSearch.substring(cSearchIndex + 2 + param.length)
-              , indexOfAnd = oldValue.indexOf("&");
+              , indexOfAnd = oldValue.indexOf("&")
+              ;
 
             if (indexOfAnd !== -1) {
                 oldValue = oldValue.substring(0, indexOfAnd);
@@ -80,11 +87,9 @@
               , cSearchIndex - 1 + param.length + oldValue.length
               , value
             );
-
         // the parameter DOESN'T exist
+        // add the new parameter
         } else {
-
-            // add the new parameter
             newSearch = cSearch + (!cSearch ? "?" : "&") + param + "=" + value;
         }
 
