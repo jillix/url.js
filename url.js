@@ -109,10 +109,15 @@
         // parse query
         var searchParsed = parseQuery();
 
-        // verify if old param has the same
-        value = encodeURIComponent(value);
-        if (searchParsed[param] === value) {
-            return;
+        // no value means delete
+        if (value === undefined) {
+            delete searchParsed[param];
+        } else {
+            // verify if old param has the same
+            value = encodeURIComponent(value);
+            if (searchParsed[param] === value) {
+                return;
+            }
         }
 
         // set the new value
