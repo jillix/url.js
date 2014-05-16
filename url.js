@@ -40,9 +40,10 @@
      * parseQuery
      * This function parses the query from url
      *
+     * @param search: if provided, this string will be parsed
      * @return: an object containing all fields and values from search url
      */
-    function parseQuery () {
+    function parseQuery (search) {
         var query = window.location.search.substring(1);
         var vars = query.split('&');
         var result = {};
@@ -105,52 +106,18 @@
      */
     function addSearch(param, value) {
 
-        // current search, old parameter value
-        var cSearch     = location.search
-          , newSearch   = cSearch
-          , cParamValue = queryString(param, true)
-          ;
+        // parse query
+        var searchParsed = parseQuery();
 
-        // encode value
+        // verify if old param has the same
         value = encodeURIComponent(value);
-
-        // the parameter already exists and it is equal with the value
-        if (cParamValue === value) {
+        if (searchParsed[param] === value) {
             return;
         }
 
-        // the parameter already exists BUT it is NOT equal with the value
-        if (cParamValue) {
-
-            // /?param=value%20anotherword&param2=1
-
-            // get the index
-            var cSearchIndex = cSearch.indexOf("?" + param + "=");
-            if (cSearchIndex < 0) {
-                cSearchIndex = cSearch.indexOf("&" + param + "=");
-            }
-
-            // get old value
-            var oldValue = cSearch.substring(cSearchIndex + 2 + param.length)
-              , indexOfAnd = oldValue.indexOf("&")
-              ;
-
-            if (indexOfAnd !== -1) {
-                oldValue = oldValue.substring(0, indexOfAnd);
-            }
-
-            // set the new search parameter value
-            newSearch = replaceAt(
-                newSearch
-              , cSearchIndex + 2 + param.length
-              , cSearchIndex - 1 + param.length + oldValue.length
-              , value
-            );
-        // the parameter DOESN'T exist
-        // add the new parameter
-        } else {
-            newSearch = cSearch + (!cSearch ? "?" : "&") + param + "=" + value;
-        }
+        // set the new value
+        searchParsed[param] = value;
+        var newSearch = "?" + queryToString (searchParsed);
 
         // and finally replace the state
         window.history.replaceState(null, "", newSearch + location.hash);
