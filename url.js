@@ -119,11 +119,15 @@
             if (searchParsed[param] === value) {
                 return;
             }
+            // set the new value
+            searchParsed[param] = value;
         }
 
-        // set the new value
-        searchParsed[param] = value;
+        // stringify the search object
         var newSearch = "?" + queryToString (searchParsed);
+        if (newSearch.length === 1) {
+            newSearch = "";
+        }
 
         // and finally replace the state
         window.history.replaceState(null, "", newSearch + location.hash);
