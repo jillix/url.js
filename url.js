@@ -151,5 +151,6 @@
         getLocation: getLocation
       , updateSearchParam: updateSearchParam
       , queryString: queryString
+      , parseSearchQuery: parseQuery
     };
 })(window);
