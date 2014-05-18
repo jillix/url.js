@@ -44,7 +44,7 @@
      * @return: an object containing all fields and values from search url
      */
     function parseQuery (search) {
-        var query = window.location.search.substring(1);
+        var query = (search || window.location.search).substring(1);
         var vars = query.split('&');
         var result = {};
         for (var i = 0; i < vars.length; i++) {
