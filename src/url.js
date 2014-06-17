@@ -73,7 +73,8 @@
         var stringified = "";
         for (var param in queryObj) {
             if (!queryObj.hasOwnProperty(param)) continue;
-            stringified += param + "=" + queryObj[param] + "&";
+            stringified +=
+                param + "=" + encodeURIComponent(queryObj[param]) + "&";
         }
         stringified = stringified.substring(0, stringified.length - 1);
         return stringified;
