@@ -3,41 +3,66 @@ url.js
 
 A lightweight JavaScript library that modifies the page url without refresh.
 
-## Methods
+# Methods
+## `queryString(name, notDecoded)`
+Finds the value of parameter passed in first argument.
 
-#### `parseSearchQuery(@search)`
+### Params:
+* **String** *name* The parameter name
+* **Boolean** *notDecoded* If true, the result will be encoded.
 
- - `@search`: if provided, this string will be parsed (e.g. "?param=value"), if not provided, the `location.search` will be taken
+### Return:
+* **String** The value of the parameter name (`name` parameter)
 
-The function will return an object representing the parsed search query.
+## `parseQuery(search)`
+Parses the string from `search` parameter or the location search
 
-e.g.:
+### Params:
+* **String** *search* Optional string that should be parsed
 
-```js
-{
-   param: "value"
-}
-```
+### Return:
+* **Object** The parsed search query
 
-#### `queryString (@param, @notDecoded)`
- - `@param`: the parameter name
- - `@notDecoded`: if true, the returned value is not decoded
+## `queryToString(queryObj)`
+Stringifies a query object
 
-Returns the value of `@param` parameter from `location.search`.
+### Params:
+* **Object** *queryObj* The object that should be stringified
 
-#### `updateSearchParam (@param, @value)`
-Adds, updates or remove a search parameter without page refresh.
+### Return:
+* **String** The stringified value of `queryObj` object
 
- - `@param`: the parameter name
- - `@value`: the parameter value (if value not provided, the parameter is **deleted** and url updated)
+## `updateSearchParam(param, value)`
+Adds a parameter=value to the url (without page refresh)
 
-#### `getLocation()`
-Returns a string built from `{pathname}{search}{hash}`.
+### Params:
+* **String** *param* The parameter name
+* **String|undefined** *value* The parameter value. If undefined, the parameter will be removed.
 
-## Changelog
+### Return:
+* **undefined**
 
-#### v0.1.0
+## `getLocation()`
+Returns the page url, but not including the domain name
+
+### Return:
+* **String** The page url (without domain)
+
+# Changelog
+
+## `v0.3.0`
+ - Fixed a bug in the `parseQuery` method
+ - Updated comments
+ - Minor syntax change
+ - Encode values when stringifying the query
+
+## `v0.2.0`
+ - Fixed a lot of bugs from initial release and simplified the code that sets, updates or delete the parameter.
+ - Some of the method names are changed. See the REAMDE file for more details.
+ - Added delete parameter feature.
+
+## `v0.1.0`
  - Initial release
 
-## License
+# License
 See LICENSE file.
