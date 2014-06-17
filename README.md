@@ -50,6 +50,9 @@ Returns the page url, but not including the domain name
 
 # Changelog
 
+## `dev`
+ - Handle `?` in search string (`parseQuery` method)
+
 ## `v0.3.0`
  - Fixed a bug in the `parseQuery` method
  - Updated comments

@@ -45,6 +45,9 @@
     function parseQuery (search) {
         var query = {};
         search = search || window.location.search
+        if (search[0] === "?") {
+            search = search.substring(1);
+        }
         if (!search) {
             return {};
         }
