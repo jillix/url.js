@@ -88,7 +88,7 @@
      * @function
      * @param {String} param The parameter name
      * @param {String|undefined} value The parameter value. If undefined, the parameter will be removed.
-     * @return
+     * @return undefined
      */
     function updateSearchParam (param, value) {
 
