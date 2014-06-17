@@ -1,25 +1,22 @@
-/*
- *  url.js
- *
+/**
+ *  url.js JavaScript library
+ *  =========================
  *  A lightweight JavaScript library that modifies the page url without refresh.
- *  Example:
+ *  Check out the documentation at: https://github.com/jillix/url.js
  *
- *    Url.addSearch("param", "value");
- *
- *  Copyright (c) 2014 jillix GmbH
- *
- * */
+ *  Copyright (c) 2014 jillix
+ */
 (function (window) {
 
     /**
      * queryString
-     * Util query string function
+     * Finds the value of parameter passed in first argument.
      *
-     * Thanks: http://stackoverflow.com/a/901144/1420197
-     *
-     * @param name: the parameter name
-     * @param notDecoded: if true, the returned value is not decoded
-     * @return: the value of search parameter
+     * @name queryString
+     * @function
+     * @param {String} name The parameter name
+     * @param {Boolean} notDecoded If true, the result will be encoded.
+     * @return {String} The value of the parameter name (`name` parameter)
      */
     function queryString (name, notDecoded) {
         name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
@@ -38,10 +35,12 @@
 
     /**
      * parseQuery
-     * This function parses the query from url
+     * Parses the string from `search` parameter or the location search
      *
-     * @param search: if provided, this string will be parsed
-     * @return: an object containing all fields and values from search url
+     * @name parseQuery
+     * @function
+     * @param {String} search Optional string that should be parsed
+     * @return {Object} The parsed search query
      */
     function parseQuery (search) {
         var query = {};
@@ -60,17 +59,12 @@
 
     /**
      * queryToString
-     * Converts a query objecto to string.
+     * Stringifies a query object
      *
-     * Example: {
-     *     param1: "value1",
-     *     param2: "value2"
-     * }
-     *
-     * is converted in "param1=value1&param2=value2"
-     *
-     * @param queryObj: the query object (see example above)
-     * @return: the stringified query object
+     * @name queryToString
+     * @function
+     * @param {Object} queryObj The object that should be stringified
+     * @return {String} The stringified value of `queryObj` object
      */
     function queryToString (queryObj) {
         if (!queryObj || queryObj.constructor.name !== "Object") {
@@ -86,27 +80,13 @@
     }
 
     /**
-     * replaceAt
-     * Replaces a character at known index
-     * Thanks! http://stackoverflow.com/a/1431113/1420197
-     *
-     * @param word: that word that should be modified
-     * @param start: start index
-     * @param end: end index
-     * @param character: string that should replace the index
-     * @return: the modified string
-     */
-    function replaceAt (word, start, end, character) {
-        return word.substr(0, start) + character + word.substr(end + character.length);
-    }
-
-    /**
      * updateSearchParam
      * Adds a parameter=value to the url (without page refresh)
      *
-     * @param param: the parameter name
-     * @param value: the parameter value (if value not provided,
-     * the parameter is deleted and url updated)
+     * @name updateSearchParam
+     * @function
+     * @param {String} param The parameter name
+     * @param {String|undefined} value The parameter value. If undefined, the parameter will be removed.
      * @return
      */
     function updateSearchParam (param, value) {
@@ -142,19 +122,20 @@
 
     /**
      * getLocation
-     * Returns the page url (without domaain and protocol)
+     * Returns the page url, but not including the domain name
      *
-     * @return: the page url (without domaain and protocol)
+     * @name getLocation
+     * @function
+     * @return {String} The page url (without domain)
      */
     function getLocation () {
         return window.location.pathname + window.location.search + window.location.hash;
     }
 
-    // export the Url object
     window.Url = {
-        getLocation: getLocation
-      , updateSearchParam: updateSearchParam
-      , queryString: queryString
-      , parseSearchQuery: parseQuery
+        getLocation: getLocation,
+        updateSearchParam: updateSearchParam,
+        queryString: queryString,
+        parseSearchQuery: parseQuery
     };
 })(window);
