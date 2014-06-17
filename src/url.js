@@ -44,14 +44,18 @@
      * @return: an object containing all fields and values from search url
      */
     function parseQuery (search) {
-        var query = (search || window.location.search).substring(1);
-        var vars = query.split('&');
-        var result = {};
-        for (var i = 0; i < vars.length; i++) {
-            var pair = vars[i].split('=');
-            result[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+        var query = {};
+        search = search || window.location.search
+        if (!search) {
+            return {};
         }
-        return result;
+        var a = search.split('&');
+        for (var i in a) {
+            var b = a[i].split('=');
+            query[decodeURIComponent(b[0])] = decodeURIComponent(b[1]);
+        }
+
+        return query;
     }
 
     /**
