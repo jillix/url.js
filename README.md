@@ -51,7 +51,10 @@ Returns the page url, but not including the domain name
 # Changelog
 
 ## `dev`
+
+## `v0.3.1`
  - Handle `?` in search string (`parseQuery` method)
+ - IE compatibility (#3).
 
 ## `v0.3.0`
  - Fixed a bug in the `parseQuery` method
