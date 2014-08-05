@@ -70,8 +70,8 @@
      * @return {String} The stringified value of `queryObj` object
      */
     function queryToString (queryObj) {
-        if (!queryObj || queryObj.constructor.name !== "Object") {
-            throw new Error ("Query object sohuld be an object");
+        if (!queryObj || queryObj.constructor !== Object) {
+            throw new Error ("Query object should be an object.");
         }
         var stringified = "";
         for (var param in queryObj) {
@@ -95,32 +95,27 @@
      */
     function updateSearchParam (param, value) {
 
-        // parse query
         var searchParsed = parseQuery();
 
-        // no value means delete
+        // No value, we will delete param
         if (value === undefined) {
             delete searchParsed[param];
         } else {
-            // verify if old param has the same
+
+            // Same value, no fun
             value = encodeURIComponent(value);
             if (searchParsed[param] === value) {
                 return;
             }
-            // set the new value
+
+            // Update value in search object
             searchParsed[param] = value;
         }
 
-        // stringify the search object
+        // Stringify the search object
         var newSearch = "?" + queryToString(searchParsed);
 
-        // TODO When no parameter, "?" will be displayed because replaceState
-        //      requires a non empty string
-        // if (newSearch.length === 1) {
-        //     newSearch = "";
-        // }
-
-        // and finally replace the state
+        // Finally, replace the state
         window.history.replaceState(null, "", newSearch + location.hash);
     }
 
