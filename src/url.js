@@ -114,12 +114,6 @@
         // stringify the search object
         var newSearch = "?" + queryToString(searchParsed);
 
-        // TODO When no parameter, "?" will be displayed because replaceState
-        //      requires a non empty string
-        // if (newSearch.length === 1) {
-        //     newSearch = "";
-        // }
-
         // and finally replace the state
         window.history.replaceState(null, "", newSearch + location.hash);
     }
