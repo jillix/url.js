@@ -70,7 +70,7 @@
      * @return {String} The stringified value of `queryObj` object
      */
     function queryToString (queryObj) {
-        if (!queryObj || queryObj.constructor.name !== "Object") {
+        if (!queryObj || queryObj.constructor !== Object) {
             throw new Error ("Query object sohuld be an object");
         }
         var stringified = "";
