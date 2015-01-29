@@ -1,4 +1,4 @@
-/**
+/*!
  *  url.js JavaScript library
  *  =========================
  *  A lightweight JavaScript library to manipulate the page url.
