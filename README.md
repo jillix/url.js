@@ -48,27 +48,5 @@ Returns the page url, but not including the domain name
 ### Return:
 * **String** The page url (without domain)
 
-# Changelog
-
-## `dev`
-
-## `v0.3.1`
- - Handle `?` in search string (`parseQuery` method)
- - IE compatibility (#3).
-
-## `v0.3.0`
- - Fixed a bug in the `parseQuery` method
- - Updated comments
- - Minor syntax change
- - Encode values when stringifying the query
-
-## `v0.2.0`
- - Fixed a lot of bugs from initial release and simplified the code that sets, updates or delete the parameter.
- - Some of the method names are changed. See the REAMDE file for more details.
- - Added delete parameter feature.
-
-## `v0.1.0`
- - Initial release
-
 # License
-See LICENSE file.
+See the [LICENSE](/LICENSE) file.
