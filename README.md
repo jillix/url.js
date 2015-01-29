@@ -4,7 +4,7 @@ A lightweight JavaScript library to manipulate the page url.
 ## Demo
 Browse the demos on http://jillix.github.io/url.js/
 
-[![](http://i.imgur.com/ubzAGqL.png)](http://jillix.github.io/url.js/)
+[![](http://i.imgur.com/BYxaxU1.png)](http://jillix.github.io/url.js/)
 
 ## Usage
 
