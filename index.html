@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>url.js</title>
+        <!-- Mobile support -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Twitter Bootstrap -->
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Material Design for Bootstrap -->
+        <link href="css/material-wfont.min.css" rel="stylesheet">
+        <link href="css/ripples.min.css" rel="stylesheet">
+        <link href="css/custom.css" rel="stylesheet">
+
+        <!-- Font Awesome -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+
+
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+
+        <!-- svg.js -->
+        <script src="js/url.js"></script>
+
+        <script src="js/handlers.js"></script>
+    </head>
+    <body>
+        <a href="https://github.com/jillix/url.js"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+        <header>
+            <div class="container text-left">
+                <h1 class="title">url.js <span class="version"></span></h1>
+                <p>A lightweight JavaScript library to manipulate the page url.</p>
+                <a class="btn btn-danger" href="https://github.com/jillix/url.js/zipball/master">
+                    <i class="fa fa-cloud-download"></i> Download .zip
+                </a>
+                <a class="btn btn-danger" href="https://github.com/jillix/url.js/tarball/master">
+                    <i class="fa fa-file-archive-o"></i> Download .tar.gz
+                </a>
+                <a class="btn btn-danger" href="https://github.com/jillix/url.js/">
+                    <i class="fa fa-github"></i> View on GitHub
+                </a>
+            </div>
+        </header>
+        <article>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2>Add a new parameter</h2>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <pre>Url.updateSearchParam("foo", "bar")</pre>
+                            </div>
+                            <div class="col-lg-4">
+                                <button class="btn btn-primary btn-sm">Run</button>
+                            </div>
+                        </div>
+
+                        <h2>Update the <code>foo</code> parameter</h2>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <pre>Url.updateSearchParam("foo", "42")</pre>
+                            </div>
+                            <div class="col-lg-4">
+                                <button class="btn btn-primary btn-sm">Run</button>
+                            </div>
+                        </div>
+
+                        <h2>Delete the <code>foo</code> parameter</h2>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <pre>Url.updateSearchParam("foo")</pre>
+                            </div>
+                            <div class="col-lg-4">
+                                <button class="btn btn-primary btn-sm">Run</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h2>Get the <code>foo</code> value</h2>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <pre>alert(Url.queryString("foo"))</pre>
+                            </div>
+                            <div class="col-lg-4">
+                                <button class="btn btn-primary btn-sm">Run</button>
+                            </div>
+                        </div>
+
+                        <h2>Parse the current url search</h2>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <pre>alert(JSON.stringify(Url.parseQuery()))</pre>
+                            </div>
+                            <div class="col-lg-4">
+                                <button class="btn btn-primary btn-sm">Run</button>
+                            </div>
+                        </div>
+
+                        <h2>Stringify an object</h2>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <pre>alert(Url.stringify({bar: 42, foo: "bar"}))</pre>
+                            </div>
+                            <div class="col-lg-4">
+                                <button class="btn btn-primary btn-sm">Run</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2><code>Url.getLocation()</code></h2>
+                        <pre class="current-location"></pre>
+                    </div>
+                </div>
+                <script>
+                    $("pre").each(function () {
+                        hljs.highlightBlock(this);
+                    });
+                </script>
+                <a class="btn btn-lg btn-danger btn-block" href="https://github.com/jillix/url.js/">Check out the documentation on GitHub.</a>
+            </div>
+        </article>
+        <footer>
+            <div class="container">
+                <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> and JavaScript by the <strong><a href="http://github.com/jillix">@jillix</a></strong> developers.
+            </div>
+        </footer>
+    </body>
+</html>

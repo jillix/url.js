@@ -143,7 +143,8 @@
     Url.getLocation = getLocation;
     Url.updateSearchParam = updateSearchParam;
     Url.queryString = queryString;
-    Url.parseSearchQuery = parseQuery;
+    Url.parseQuery = parseQuery;
+    Url.stringify = stringify;
 
     // Version
     Url.version = "1.0.0";
