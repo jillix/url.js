@@ -138,4 +138,7 @@
     Url.updateSearchParam = updateSearchParam;
     Url.queryString = queryString;
     Url.parseSearchQuery = parseQuery;
+
+    // Version
+    Url.version = "1.0.0";
 })(window);
