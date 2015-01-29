@@ -1,5 +1,10 @@
-# urljs
+# url.js
 A lightweight JavaScript library to manipulate the page url.
+
+## Demo
+Browse the demos on https://jillix.github.io/url.js/
+
+[![](http://i.imgur.com/ubzAGqL.png)][https://jillix.github.io/url.js/]
 
 ## Usage
 
