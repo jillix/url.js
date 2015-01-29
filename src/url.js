@@ -16,18 +16,21 @@
      *
      * @name queryString
      * @function
-     * @param {String} name The parameter name
-     * @param {Boolean} notDecoded If true, the result will be encoded.
-     * @return {String} The value of the parameter name (`name` parameter)
+     * @param {String} name The parameter name.
+     * @param {Boolean} notDecoded If `true`, the result will be encoded.
+     * @return {String} The parameter value.
      */
     function queryString(name, notDecoded) {
         name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
         var results = regex.exec(location.search);
+        var encoded = null;
+
         if (results === null) {
             return "";
         } else {
-            var encoded = results[1].replace(/\+/g, " ");
+            encoded = results[1].replace(/\+/g, " ");
             if (notDecoded) {
                 return encoded;
             }
@@ -37,25 +40,31 @@
 
     /**
      * parseQuery
-     * Parses the string from `search` parameter or the location search
+     * Parses a string as querystring.
      *
      * @name parseQuery
      * @function
-     * @param {String} search Optional string that should be parsed
-     * @return {Object} The parsed search query
+     * @param {String} search An optional string that should be parsed (default: `window.location.search`).
+     * @return {Object} The parsed querystring.
      */
     function parseQuery(search) {
         var query = {};
-        search = search || window.location.search;
-        if (search[0] === "?") {
-            search = search.substring(1);
+
+        if (typeof search !== "string") {
+            search = window.location.search;
         }
+
+        search = search.replace(/^\?/g, "");
+
         if (!search) {
             return {};
         }
-        var a = search.split('&');
-        for (var i in a) {
-            var b = a[i].split('=');
+
+        var a = search.split("&");
+        var b = null;
+        var i = 0;
+        for (; i < a.length; ++i) {
+            b = a[i].split("=");
             query[decodeURIComponent(b[0])] = decodeURIComponent(b[1]);
         }
 
@@ -63,71 +72,68 @@
     }
 
     /**
-     * queryToString
-     * Stringifies a query object
+     * stringify
+     * Stringifies a query object.
      *
-     * @name queryToString
+     * @name stringify
      * @function
-     * @param {Object} queryObj The object that should be stringified
-     * @return {String} The stringified value of `queryObj` object
+     * @param {Object} queryObj The object that should be stringified.
+     * @return {String} The stringified value of `queryObj` object.
      */
-    function queryToString(queryObj) {
+    function stringify(queryObj) {
+
         if (!queryObj || queryObj.constructor !== Object) {
             throw new Error("Query object should be an object.");
         }
+
         var stringified = "";
-        for (var param in queryObj) {
-            if (!queryObj.hasOwnProperty(param)) continue;
-            stringified +=
-                param + "=" + encodeURIComponent(queryObj[param]) + "&";
-        }
-        stringified = stringified.substring(0, stringified.length - 1);
+        Object.keys(queryObj).forEach(function(c) {
+            stringified += c + "=" + encodeURIComponent(queryObj[c]) + "&";
+        });
+
+        stringified = stringified.replace(/\&$/g, "");
         return stringified;
     }
 
     /**
      * updateSearchParam
-     * Adds a parameter=value to the url (without page refresh)
+     * Adds, updates or deletes a parameter (without page refresh).
      *
      * @name updateSearchParam
      * @function
-     * @param {String} param The parameter name
-     * @param {String|undefined} value The parameter value. If undefined, the parameter will be removed.
-     * @return undefined
+     * @param {String} param The parameter name.
+     * @param {String|undefined} value The parameter value. If `undefined`, the parameter will be removed.
+     * @return {Url} The `Url` object.
      */
     function updateSearchParam(param, value) {
 
         var searchParsed = parseQuery();
 
-        // No value, we will delete param
+        // Delete the parameter
         if (value === undefined) {
             delete searchParsed[param];
         } else {
-
-            // Same value, no fun
+            // Update or add
             value = encodeURIComponent(value);
             if (searchParsed[param] === value) {
-                return;
+                return Url;
             }
-
-            // Update value in search object
             searchParsed[param] = value;
         }
 
-        // Stringify the search object
-        var newSearch = "?" + queryToString(searchParsed);
-
-        // Finally, replace the state
+        var newSearch = "?" + stringify(searchParsed);
         window.history.replaceState(null, "", newSearch + location.hash);
+
+        return Url;
     }
 
     /**
      * getLocation
-     * Returns the page url, but not including the domain name
+     * Returns the page url, but not including the domain name.
      *
      * @name getLocation
      * @function
-     * @return {String} The page url (without domain)
+     * @return {String} The page url (without domain).
      */
     function getLocation() {
         return window.location.pathname + window.location.search + window.location.hash;
