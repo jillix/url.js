@@ -1,7 +1,17 @@
-# url.js
+# urljs
 A lightweight JavaScript library to manipulate the page url.
 
+## Usage
+
+```html
+<script src="path/to/url.js"></script>
+<script>
+    Url.updateSearchParam("answer", 42);
+</script>
+```
+
 ## Documentation
+
 ### `queryString(name, notDecoded)`
 Finds the value of parameter passed in first argument.
 
