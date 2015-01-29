@@ -1,0 +1,61 @@
+@import url(http://fonts.googleapis.com/css?family=Inconsolata:700);
+
+.title {
+    font-family: 'Inconsolata', monospace;
+    font-weight: bold;
+}
+
+header {
+    padding: 8em 0;
+}
+
+header, footer {
+    color: white;
+    background: #009688;
+    background-image: url("background.png");
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.51);
+}
+
+h1.title {
+    font-size: 4em;
+    font-weight: bold;
+}
+
+pre {
+    background: #212121;
+    color: white;
+}
+
+header p {
+    font-size: 1.4em;
+}
+
+footer {
+    padding: 50px 0;
+    text-align: center;
+    font-size: 1.1em;
+    margin-top: 3em;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    color: white;
+}
+
+line {
+    stroke-width: 2px;
+}
+
+.graph {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 525px;
+}
+
+.btn.btn-sm {
+    margin-top: 0;
+}

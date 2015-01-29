@@ -1,74 +1,75 @@
-url.js
-======
+# url.js
+A lightweight JavaScript library to manipulate the page url.
 
-A lightweight JavaScript library that modifies the page url without refresh.
+## Demo
+Browse the demos on https://jillix.github.io/url.js/
 
-# Methods
-## `queryString(name, notDecoded)`
+[![](http://i.imgur.com/ubzAGqL.png)](https://jillix.github.io/url.js/)
+
+## Usage
+
+```html
+<script src="path/to/url.js"></script>
+<script>
+    Url.updateSearchParam("answer", 42);
+</script>
+```
+
+## Documentation
+
+### `queryString(name, notDecoded)`
 Finds the value of parameter passed in first argument.
 
-### Params:
-* **String** *name* The parameter name
-* **Boolean** *notDecoded* If true, the result will be encoded.
+#### Params
+- **String** `name`: The parameter name.
+- **Boolean** `notDecoded`: If `true`, the result will be encoded.
 
-### Return:
-* **String** The value of the parameter name (`name` parameter)
+#### Return
+- **String** The parameter value.
 
-## `parseQuery(search)`
-Parses the string from `search` parameter or the location search
+### `parseQuery(search)`
+Parses a string as querystring.
 
-### Params:
-* **String** *search* Optional string that should be parsed
+#### Params
+- **String** `search`: An optional string that should be parsed (default: `window.location.search`).
 
-### Return:
-* **Object** The parsed search query
+#### Return
+- **Object** The parsed querystring.
 
-## `queryToString(queryObj)`
-Stringifies a query object
+### `stringify(queryObj)`
+Stringifies a query object.
 
-### Params:
-* **Object** *queryObj* The object that should be stringified
+#### Params
+- **Object** `queryObj`: The object that should be stringified.
 
-### Return:
-* **String** The stringified value of `queryObj` object
+#### Return
+- **String** The stringified value of `queryObj` object.
 
-## `updateSearchParam(param, value)`
-Adds a parameter=value to the url (without page refresh)
+### `updateSearchParam(param, value)`
+Adds, updates or deletes a parameter (without page refresh).
 
-### Params:
-* **String** *param* The parameter name
-* **String|undefined** *value* The parameter value. If undefined, the parameter will be removed.
+#### Params
+- **String** `param`: The parameter name.
+- **String** `value`: The parameter value. If `undefined`, the parameter will be removed.
 
-### Return:
-* **undefined**
+#### Return
+- **Url** The `Url` object.
 
-## `getLocation()`
-Returns the page url, but not including the domain name
+### `getLocation()`
+Returns the page url, but not including the domain name.
 
-### Return:
-* **String** The page url (without domain)
+#### Return
+- **String** The page url (without domain).
 
-# Changelog
+## How to contribute
+1. File an issue in the repository, using the bug tracker, describing the
+   contribution you'd like to make. This will help us to get you started on the
+   right foot.
+2. Fork the project in your account and create a new branch:
+   `your-great-feature`.
+3. Commit your changes in that branch.
+4. Open a pull request, and reference the initial issue in the pull request
+   message.
 
-## `dev`
-
-## `v0.3.1`
- - Handle `?` in search string (`parseQuery` method)
- - IE compatibility (#3).
-
-## `v0.3.0`
- - Fixed a bug in the `parseQuery` method
- - Updated comments
- - Minor syntax change
- - Encode values when stringifying the query
-
-## `v0.2.0`
- - Fixed a lot of bugs from initial release and simplified the code that sets, updates or delete the parameter.
- - Some of the method names are changed. See the REAMDE file for more details.
- - Added delete parameter feature.
-
-## `v0.1.0`
- - Initial release
-
-# License
-See LICENSE file.
+## License
+See the [LICENSE](./LICENSE) file.
