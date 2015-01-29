@@ -1,6 +1,6 @@
 /*!
- *  url.js JavaScript library
- *  =========================
+ *  url.js
+ *  ======
  *  A lightweight JavaScript library to manipulate the page url.
  *  Check out the documentation at: https://github.com/jillix/url.js
  *
