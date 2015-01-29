@@ -1,12 +1,14 @@
 /**
  *  url.js JavaScript library
  *  =========================
- *  A lightweight JavaScript library that modifies the page url without refresh.
+ *  A lightweight JavaScript library to manipulate the page url.
  *  Check out the documentation at: https://github.com/jillix/url.js
  *
- *  Copyright (c) 2014 jillix
+ *  Created with <3 by the jillix develeopers.
  */
 (function (window) {
+
+    var Url = window.Url = {};
 
     /**
      * queryString
@@ -131,10 +133,9 @@
         return window.location.pathname + window.location.search + window.location.hash;
     }
 
-    window.Url = {
-        getLocation: getLocation,
-        updateSearchParam: updateSearchParam,
-        queryString: queryString,
-        parseSearchQuery: parseQuery
-    };
+    // Append the methods
+    Url.getLocation = getLocation;
+    Url.updateSearchParam = updateSearchParam;
+    Url.queryString = queryString;
+    Url.parseSearchQuery = parseQuery;
 })(window);
