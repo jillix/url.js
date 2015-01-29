@@ -6,7 +6,7 @@
  *
  *  Created with <3 by the jillix develeopers.
  */
-(function (window) {
+(function(window) {
 
     var Url = window.Url = {};
 
@@ -20,7 +20,7 @@
      * @param {Boolean} notDecoded If true, the result will be encoded.
      * @return {String} The value of the parameter name (`name` parameter)
      */
-    function queryString (name, notDecoded) {
+    function queryString(name, notDecoded) {
         name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
         var results = regex.exec(location.search);
@@ -44,7 +44,7 @@
      * @param {String} search Optional string that should be parsed
      * @return {Object} The parsed search query
      */
-    function parseQuery (search) {
+    function parseQuery(search) {
         var query = {};
         search = search || window.location.search;
         if (search[0] === "?") {
@@ -71,9 +71,9 @@
      * @param {Object} queryObj The object that should be stringified
      * @return {String} The stringified value of `queryObj` object
      */
-    function queryToString (queryObj) {
+    function queryToString(queryObj) {
         if (!queryObj || queryObj.constructor !== Object) {
-            throw new Error ("Query object should be an object.");
+            throw new Error("Query object should be an object.");
         }
         var stringified = "";
         for (var param in queryObj) {
@@ -95,7 +95,7 @@
      * @param {String|undefined} value The parameter value. If undefined, the parameter will be removed.
      * @return undefined
      */
-    function updateSearchParam (param, value) {
+    function updateSearchParam(param, value) {
 
         var searchParsed = parseQuery();
 
@@ -129,7 +129,7 @@
      * @function
      * @return {String} The page url (without domain)
      */
-    function getLocation () {
+    function getLocation() {
         return window.location.pathname + window.location.search + window.location.hash;
     }
 
