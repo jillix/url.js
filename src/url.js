@@ -149,5 +149,5 @@
     Url.stringify = stringify;
 
     // Version
-    Url.version = "1.0.1";
+    Url.version = "1.1.0";
 })(window);
