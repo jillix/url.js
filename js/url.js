@@ -63,9 +63,11 @@
         var a = search.split("&");
         var b = null;
         var i = 0;
+        var iequ;
         for (; i < a.length; ++i) {
-            b = a[i].split("=");
-            query[decodeURIComponent(b[0])] = decodeURIComponent(b[1]);
+            iequ = a[i].indexOf("=");
+            if (iequ < 0) iequ = a[i].length;
+            query[decodeURIComponent(a[i].slice(0, iequ))] = decodeURIComponent(a[i].slice(iequ+1));
         }
 
         return query;
@@ -147,5 +149,5 @@
     Url.stringify = stringify;
 
     // Version
-    Url.version = "1.0.1";
+    Url.version = "1.1.0";
 })(window);
