@@ -116,7 +116,6 @@
             delete searchParsed[param];
         } else {
             // Update or add
-            value = encodeURIComponent(value);
             if (searchParsed[param] === value) {
                 return Url;
             }
