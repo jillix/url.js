@@ -1,6 +1,6 @@
 {
   "name": "urljs",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A lightweight JavaScript library to manipulate the page url.",
   "main": "src/url.js",
   "directories": {
@@ -9,6 +9,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "contributors": [
+    "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/jillix/url.js.git"

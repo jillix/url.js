@@ -10,7 +10,7 @@ Browse the demos on http://jillix.github.io/url.js/
 The library is available on [CDNJS](https://cdnjs.com/libraries/urljs) as well. To use it, just do:
 
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/urljs/1.1.0/url.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/urljs/1.2.0/url.min.js"></script>
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ The library is available on [CDNJS](https://cdnjs.com/libraries/urljs) as well. 
 ```html
 <script src="path/to/url.js"></script>
 <!-- or use the cdn
-<script src="https://cdnjs.cloudflare.com/ajax/libs/urljs/1.1.0/url.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/urljs/1.2.0/url.min.js"></script>
 -->
 <script>
     Url.updateSearchParam("answer", 42);
