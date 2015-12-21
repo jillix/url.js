@@ -123,7 +123,7 @@
         }
 
         var newSearch = "?" + stringify(searchParsed);
-        window.history.replaceState(null, "", newSearch + location.hash);
+        window.history.replaceState(null, "", window.location.pathname + newSearch + location.hash);
 
         return Url;
     }
