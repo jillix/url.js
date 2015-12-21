@@ -18,7 +18,9 @@
      * @function
      * @param {String} name The parameter name.
      * @param {Boolean} notDecoded If `true`, the result will be encoded.
-     * @return {String} The parameter value.
+     * @return {String|Boolean|Undefined} The parameter value (as string),
+     * `true` if the parameter is there, but doesn't have a value, or
+     * `undefined` if it is missing.
      */
     function queryString(name, notDecoded) {
         name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
@@ -28,7 +30,11 @@
         var encoded = null;
 
         if (results === null) {
-            return "";
+            regex = new RegExp("[\\?&]" + name + "\\&([^&#]*)");
+            if (regex.test(location.search)) {
+                return true;
+            }
+            return undefined;
         } else {
             encoded = results[1].replace(/\+/g, " ");
             if (notDecoded) {
@@ -40,12 +46,16 @@
 
     /**
      * parseQuery
-     * Parses a string as querystring.
+     * Parses a string as querystring. Like the `queryString` method does, if
+     * the parameter is there, but it doesn't have a value, the value will
+     * be `true`.
      *
      * @name parseQuery
      * @function
-     * @param {String} search An optional string that should be parsed (default: `window.location.search`).
-     * @return {Object} The parsed querystring.
+     * @param {String} search An optional string that should be parsed
+     * (default: `window.location.search`).
+     * @return {Object} The parsed querystring. Note this will contain empty
+     * strings for
      */
     function parseQuery(search) {
         var query = {};
@@ -60,14 +70,23 @@
             return {};
         }
 
-        var a = search.split("&");
-        var b = null;
-        var i = 0;
-        var iequ;
+        var a = search.split("&")
+          , i = 0
+          , iequ
+          , value = null
+          ;
+
         for (; i < a.length; ++i) {
             iequ = a[i].indexOf("=");
-            if (iequ < 0) iequ = a[i].length;
-            query[decodeURIComponent(a[i].slice(0, iequ))] = decodeURIComponent(a[i].slice(iequ+1));
+
+            if (iequ < 0) {
+                iequ = a[i].length;
+                value = true;
+            } else {
+                value = decodeURIComponent(a[i].slice(iequ+1))
+            }
+
+            query[decodeURIComponent(a[i].slice(0, iequ))] = value;
         }
 
         return query;
@@ -90,7 +109,12 @@
 
         var stringified = "";
         Object.keys(queryObj).forEach(function(c) {
-            stringified += c + "=" + encodeURIComponent(queryObj[c]) + "&";
+            var value = queryObj[c];
+            stringified += c;
+            if (value !== true) {
+                stringified += "=" + encodeURIComponent(queryObj[c]);
+            }
+            stringified += "&";
         });
 
         stringified = stringified.replace(/\&$/g, "");
@@ -148,5 +172,5 @@
     Url.stringify = stringify;
 
     // Version
-    Url.version = "1.2.0";
+    Url.version = "1.3.0";
 })(window);
