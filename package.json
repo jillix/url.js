@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "contributors": [
-    "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)"
+    "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
+    "Andrey Mikhaylov <lolmaus@gmail.com> (http://github.com/lolmaus/)"
   ],
   "repository": {
     "type": "git",
