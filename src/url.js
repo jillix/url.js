@@ -30,7 +30,7 @@
         var encoded = null;
 
         if (results === null) {
-            regex = new RegExp("[\\?&]" + name + "\\&([^&#]*)");
+            regex = new RegExp("[\\?&]" + name + "(\\&([^&#]*)|$)");
             if (regex.test(location.search)) {
                 return true;
             }
