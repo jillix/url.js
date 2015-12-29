@@ -2,7 +2,7 @@
   "name": "urljs",
   "version": "1.2.0",
   "description": "A lightweight JavaScript library to manipulate the page url.",
-  "main": "src/url.js",
+  "main": "lib/index.js",
   "directories": {
     "example": "example"
   },
