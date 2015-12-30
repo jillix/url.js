@@ -7,7 +7,8 @@
     "example": "example"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "browserify lib/index.js -s Url -o src/url.min.js && babel src/url.min.js | uglifyjs -c -m -o src/url.min.js"
   },
   "contributors": [
     "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
