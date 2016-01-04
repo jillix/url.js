@@ -82,8 +82,7 @@ Returns the page url, but not including the domain name.
 #### Return
 - **String** The page url (without domain).
 
-### `getLocation(newHash)`
-hash
+### `hash(newHash)`
 Sets/gets the hash value.
 
 #### Params
