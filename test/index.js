@@ -71,9 +71,9 @@ tester.describe("url.js", test => {
             }, result => {
                 test.expect(result).toBe(true);
                 _page.evaluate(function () {
-                    return Url.getLocation();
+                    return location.search;
                 }, result => {
-                    test.expect(result).toBe("/?foo");
+                    test.expect(result).toBe("?foo");
                     cb();
                 });
             });
@@ -109,10 +109,9 @@ tester.describe("url.js", test => {
                     test.expect(result).toBe("/foo");
                 } catch (e) { return cb(e); }
                 _page.evaluate(function () {
-                    return Url.getLocation();
+                    return location.pathname;
                 }, result => {
-                    debugger
-                    test.expect(result).toBe("/foo?foo#foo");
+                    test.expect(result).toBe("/foo");
                     cb();
                 });
             });
