@@ -1,6 +1,6 @@
 {
   "name": "urljs",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "A lightweight JavaScript library to manipulate the page url.",
   "main": "lib/index.js",
   "directories": {
@@ -79,7 +79,9 @@
       {
         "h2": "CommonJS-compatible"
       },
-      { "p": "The library is CommonJS-compatible. You can `require(\"url.js\")` in your files." }
+      {
+        "p": "The library is CommonJS-compatible. You can `require(\"url.js\")` in your files."
+      }
     ]
   }
 }
