@@ -4,7 +4,8 @@
   "description": "A lightweight JavaScript library to manipulate the page url.",
   "main": "lib/index.js",
   "directories": {
-    "example": "example"
+    "example": "example",
+    "test": "test"
   },
   "scripts": {
     "test": "node test",
@@ -16,14 +17,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jillix/url.js.git"
+    "url": "git+https://github.com/jillix/url.js.git"
   },
   "keywords": [
     "url",
     "manipulate",
     "browser"
   ],
-  "author": "jillix <contact@jillix.com>",
+  "author": "jillix <contact@jillix.com> (http://jillix.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jillix/url.js/issues"
@@ -33,5 +34,52 @@
     "ghosty": "^1.1.0",
     "lien": "0.0.15",
     "tester": "^1.3.0"
+  },
+  "blah": {
+    "title": "url.js",
+    "description": [
+      {
+        "h2": "Demo"
+      },
+      {
+        "p": "Browse the demos on http://jillix.github.io/url.js/"
+      },
+      {
+        "p": "[![](http://i.imgur.com/BYxaxU1.png)](http://jillix.github.io/url.js/)"
+      },
+      {
+        "h2": "CDN"
+      },
+      {
+        "p": "The library is available on [CDNJS](https://cdnjs.com/libraries/urljs) as well. To use it, just do:"
+      },
+      {
+        "code": {
+          "language": "html",
+          "content": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/urljs/1.2.0/url.min.js\"></script>"
+        }
+      },
+      {
+        "h2": "Usage"
+      },
+      {
+        "code": {
+          "language": "html",
+          "content": [
+            "<script src=\"path/to/url.js\"></script>",
+            "<!-- or use the cdn",
+            "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/urljs/1.2.0/url.min.js\"></script>",
+            "-->",
+            "<script>",
+            "    Url.updateSearchParam(\"answer\", 42);",
+            "</script>"
+          ]
+        }
+      },
+      {
+        "h2": "CommonJS-compatible"
+      },
+      { "p": "The library is CommonJS-compatible. You can `require(\"url.js\")` in your files." }
+    ]
   }
 }

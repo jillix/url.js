@@ -1,20 +1,21 @@
 # url.js
+
 A lightweight JavaScript library to manipulate the page url.
 
 ## Demo
+
 Browse the demos on http://jillix.github.io/url.js/
 
 [![](http://i.imgur.com/BYxaxU1.png)](http://jillix.github.io/url.js/)
 
 ## CDN
+
 The library is available on [CDNJS](https://cdnjs.com/libraries/urljs) as well. To use it, just do:
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/urljs/1.2.0/url.min.js"></script>
 ```
-
 ## Usage
-
 ```html
 <script src="path/to/url.js"></script>
 <!-- or use the cdn
@@ -24,6 +25,13 @@ The library is available on [CDNJS](https://cdnjs.com/libraries/urljs) as well. 
     Url.updateSearchParam("answer", 42);
 </script>
 ```
+## CommonJS-compatible
+
+The library is CommonJS-compatible. You can `require("url.js")` in your files.
+
+## Installation
+
+Check out the [`src`](/src) directory to download the needed files and include them on your page.
 
 ## Documentation
 
@@ -35,16 +43,19 @@ Finds the value of parameter passed in first argument.
 - **Boolean** `notDecoded`: If `true`, the result will be encoded.
 
 #### Return
-- **String** The parameter value.
+- **String|Boolean|Undefined** The parameter value (as string), `true` if the parameter is there, but doesn't have a value, or
+`undefined` if it is missing.
 
 ### `parseQuery(search)`
-Parses a string as querystring.
+Parses a string as querystring. Like the `queryString` method does, if
+the parameter is there, but it doesn't have a value, the value will
+be `true`.
 
 #### Params
 - **String** `search`: An optional string that should be parsed (default: `window.location.search`).
 
 #### Return
-- **Object** The parsed querystring.
+- **Object** The parsed querystring. Note this will contain empty strings for
 
 ### `stringify(queryObj)`
 Stringifies a query object.
@@ -71,15 +82,46 @@ Returns the page url, but not including the domain name.
 #### Return
 - **String** The page url (without domain).
 
+### `getLocation(newHash)`
+hash
+Sets/gets the hash value.
+
+#### Params
+- **String** `newHash`: The hash to set.
+
+#### Return
+- **String** The location hash.
+
+### `_updateAll(newHash)`
+Update the full url (pathname, search, hash).
+
+#### Params
+- **String** `newHash`: The hash to set.
+
+#### Return
+- **String** The set url.
+
+### `getLocation(pathname)`
+pathname
+Sets/gets the pathname.
+
+#### Params
+- **String** `pathname`: The pathname to set.
+
+#### Return
+- **String** The set url.
+
 ## How to contribute
-1. File an issue in the repository, using the bug tracker, describing the
-   contribution you'd like to make. This will help us to get you started on the
-   right foot.
-2. Fork the project in your account and create a new branch:
-   `your-great-feature`.
-3. Commit your changes in that branch.
-4. Open a pull request, and reference the initial issue in the pull request
-   message.
+Have an idea? Found a bug? See [how to contribute][contributing].
+
+## Where is this library used?
+If you are using this library in one of your projects, add it in this list. :sparkles:
 
 ## License
-See the [LICENSE](./LICENSE) file.
+
+[MIT][license] © [jillix][website]
+
+[license]: http://showalicense.com/?fullname=jillix%20%3Ccontact%40jillix.com%3E%20(http%3A%2F%2Fjillix.com)&year=2014#license-mit
+[website]: http://jillix.com
+[contributing]: /CONTRIBUTING.md
+[docs]: /DOCUMENTATION.md
