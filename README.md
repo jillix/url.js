@@ -1,6 +1,6 @@
-# url.js
+# url.js [![Version](https://img.shields.io/npm/v/urljs.svg)](https://www.npmjs.com/package/urljs) [![Downloads](https://img.shields.io/npm/dt/urljs.svg)](https://www.npmjs.com/package/urljs)
 
-A lightweight JavaScript library to manipulate the page url.
+> A lightweight JavaScript library to manipulate the page url.
 
 ## Demo
 
@@ -66,12 +66,14 @@ Stringifies a query object.
 #### Return
 - **String** The stringified value of `queryObj` object.
 
-### `updateSearchParam(param, value)`
+### `updateSearchParam(param, value, push)`
 Adds, updates or deletes a parameter (without page refresh).
 
 #### Params
 - **String** `param`: The parameter name.
 - **String** `value`: The parameter value. If `undefined`, the parameter will be removed.
+- **Boolean** `push`: If `true`, the page will be kept in the history, otherwise the location will be changed but by pressing the back button
+will not bring you to the old location.
 
 #### Return
 - **Url** The `Url` object.
@@ -100,12 +102,14 @@ Update the full url (pathname, search, hash).
 #### Return
 - **String** The set url.
 
-### `getLocation(pathname)`
+### `getLocation(pathname, push)`
 pathname
 Sets/gets the pathname.
 
 #### Params
 - **String** `pathname`: The pathname to set.
+- **Boolean** `push`: If `true`, the page will be kept in the history, otherwise the location will be changed but by pressing the back button
+will not bring you to the old location.
 
 #### Return
 - **String** The set url.
