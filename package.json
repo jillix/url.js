@@ -1,6 +1,6 @@
 {
   "name": "urljs",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "A lightweight JavaScript library to manipulate the page url.",
   "main": "lib/index.js",
   "directories": {

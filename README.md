@@ -1,3 +1,4 @@
+
 # url.js [![Version](https://img.shields.io/npm/v/urljs.svg)](https://www.npmjs.com/package/urljs) [![Downloads](https://img.shields.io/npm/dt/urljs.svg)](https://www.npmjs.com/package/urljs)
 
 > A lightweight JavaScript library to manipulate the page url.
@@ -5,6 +6,7 @@
 ## Demo
 
 Browse the demos on http://jillix.github.io/url.js/
+
 
 [![](http://i.imgur.com/BYxaxU1.png)](http://jillix.github.io/url.js/)
 
@@ -29,11 +31,20 @@ The library is available on [CDNJS](https://cdnjs.com/libraries/urljs) as well. 
 
 The library is CommonJS-compatible. You can `require("url.js")` in your files.
 
-## Installation
+
+## :cloud: Installation
+
 
 Check out the [`src`](/src) directory to download the needed files and include them on your page.
 
-## Documentation
+If you're using this module in a CommonJS environment, you can install it from `npm` and `require` it:
+
+```sh
+$ npm i --save urljs
+```
+
+
+## :memo: Documentation
 
 ### `queryString(name, notDecoded)`
 Finds the value of parameter passed in first argument.
@@ -66,7 +77,7 @@ Stringifies a query object.
 #### Return
 - **String** The stringified value of `queryObj` object.
 
-### `updateSearchParam(param, value, push)`
+### `updateSearchParam(param, value, push, triggerPopState)`
 Adds, updates or deletes a parameter (without page refresh).
 
 #### Params
@@ -74,6 +85,7 @@ Adds, updates or deletes a parameter (without page refresh).
 - **String** `value`: The parameter value. If `undefined`, the parameter will be removed.
 - **Boolean** `push`: If `true`, the page will be kept in the history, otherwise the location will be changed but by pressing the back button
 will not bring you to the old location.
+- **Boolean** `triggerPopState`: Triggers the popstate handlers (by default falsly).
 
 #### Return
 - **Url** The `Url` object.
@@ -84,25 +96,27 @@ Returns the page url, but not including the domain name.
 #### Return
 - **String** The page url (without domain).
 
-### `hash(newHash)`
+### `hash(newHash, triggerPopState)`
 Sets/gets the hash value.
 
 #### Params
 - **String** `newHash`: The hash to set.
+- **Boolean** `triggerPopState`: Triggers the popstate handlers (by default falsly).
 
 #### Return
 - **String** The location hash.
 
-### `_updateAll(newHash)`
+### `_updateAll(newHash, triggerPopState)`
 Update the full url (pathname, search, hash).
 
 #### Params
 - **String** `newHash`: The hash to set.
+- **Boolean** `triggerPopState`: Triggers the popstate handlers (by default falsly).
 
 #### Return
 - **String** The set url.
 
-### `getLocation(pathname, push)`
+### `getLocation(pathname, push, triggerPopState)`
 pathname
 Sets/gets the pathname.
 
@@ -110,17 +124,30 @@ Sets/gets the pathname.
 - **String** `pathname`: The pathname to set.
 - **Boolean** `push`: If `true`, the page will be kept in the history, otherwise the location will be changed but by pressing the back button
 will not bring you to the old location.
+- **Boolean** `triggerPopState`: Triggers the popstate handlers (by default falsly).
 
 #### Return
 - **String** The set url.
 
-## How to contribute
+### `triggerPopStateCb()`
+Calls the popstate handlers.
+
+### `onPopState(cb)`
+Adds a popstate handler.
+
+#### Params
+- **Function** `cb`: The callback function.
+
+### `removeHash()`
+Removes the hash from the url.
+
+
+
+## :yum: How to contribute
 Have an idea? Found a bug? See [how to contribute][contributing].
 
-## Where is this library used?
-If you are using this library in one of your projects, add it in this list. :sparkles:
 
-## License
+## :scroll: License
 
 [MIT][license] © [jillix][website]
 
