@@ -1,51 +1,6 @@
+## Documentation
 
-# url.js [![Version](https://img.shields.io/npm/v/urljs.svg)](https://www.npmjs.com/package/urljs) [![Downloads](https://img.shields.io/npm/dt/urljs.svg)](https://www.npmjs.com/package/urljs)
-
-> A lightweight JavaScript library to manipulate the page url.
-
-## Demo
-
-Browse the demos on http://jillix.github.io/url.js/
-
-
-[![](http://i.imgur.com/BYxaxU1.png)](http://jillix.github.io/url.js/)
-
-## CDN
-
-The library is available on [CDNJS](https://cdnjs.com/libraries/urljs) as well. To use it, just do:
-
-```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/urljs/1.2.0/url.min.js"></script>
-```
-## Usage
-```html
-<script src="path/to/url.js"></script>
-<!-- or use the cdn
-<script src="https://cdnjs.cloudflare.com/ajax/libs/urljs/1.2.0/url.min.js"></script>
--->
-<script>
-    Url.updateSearchParam("answer", 42);
-</script>
-```
-## CommonJS-compatible
-
-The library is CommonJS-compatible. You can `require("url.js")` in your files.
-
-
-## :cloud: Installation
-
-
-Check out the [`src`](/src) directory to download the needed files and include them on your page.
-
-If you're using this module in a CommonJS environment, you can install it from `npm` and `require` it:
-
-```sh
-$ npm i --save urljs
-```
-
-
-## :memo: Documentation
-
+You can see below the API reference of this module.
 
 ### `queryString(name, notDecoded)`
 Finds the value of parameter passed in first argument.
@@ -145,17 +100,3 @@ Removes the hash from the url.
 ### `removeQuery()`
 Removes the querystring parameters from the url.
 
-
-
-## :yum: How to contribute
-Have an idea? Found a bug? See [how to contribute][contributing].
-
-
-## :scroll: License
-
-[MIT][license] © [jillix][website]
-
-[license]: http://showalicense.com/?fullname=jillix%20%3Ccontact%40jillix.com%3E%20(http%3A%2F%2Fjillix.com)&year=2014#license-mit
-[website]: http://jillix.com
-[contributing]: /CONTRIBUTING.md
-[docs]: /DOCUMENTATION.md
