@@ -62,11 +62,13 @@ Sets/gets the hash value.
 #### Return
 - **String** The location hash.
 
-### `_updateAll(newHash, triggerPopState)`
+### `_updateAll(s, push, triggerPopState)`
 Update the full url (pathname, search, hash).
 
 #### Params
-- **String** `newHash`: The hash to set.
+- **String** `s`: The new url to set.
+- **Boolean** `push`: If `true`, the page will be kept in the history, otherwise the location will be changed but by pressing the back button
+will not bring you to the old location.
 - **Boolean** `triggerPopState`: Triggers the popstate handlers (by default falsly).
 
 #### Return
@@ -94,9 +96,19 @@ Adds a popstate handler.
 #### Params
 - **Function** `cb`: The callback function.
 
-### `removeHash()`
+### `removeHash(push, trigger)`
 Removes the hash from the url.
 
-### `removeQuery()`
+#### Params
+- **Boolean** `push`: If `true`, the page will be kept in the history, otherwise the location will be changed but by pressing the back button
+will not bring you to the old location.
+- **Boolean** `trigger`: Triggers the popstate handlers (by default falsly).
+
+### `removeQuery(push, trigger)`
 Removes the querystring parameters from the url.
+
+#### Params
+- **Boolean** `push`: If `true`, the page will be kept in the history, otherwise the location will be changed but by pressing the back button
+will not bring you to the old location.
+- **Boolean** `trigger`: Triggers the popstate handlers (by default falsly).
 
