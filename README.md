@@ -84,7 +84,7 @@ Stringifies a query object.
 Adds, updates or deletes a parameter (without page refresh).
 
 #### Params
-- **String** `param`: The parameter name.
+- **String|Object** `param`: The parameter name or name-value pairs as object.
 - **String** `value`: The parameter value. If `undefined`, the parameter will be removed.
 - **Boolean** `push`: If `true`, the page will be kept in the history, otherwise the location will be changed but by pressing the back button
 will not bring you to the old location.
