@@ -1,6 +1,6 @@
 {
   "name": "urljs",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "description": "A lightweight JavaScript library to manipulate the page url.",
   "main": "lib/index.js",
   "directories": {
@@ -61,7 +61,7 @@
       {
         "code": {
           "language": "html",
-          "content": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/urljs/1.2.0/url.min.js\"></script>"
+          "content": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/urljs/2.6.1/url.min.js\"></script>"
         }
       },
       {
@@ -73,7 +73,7 @@
           "content": [
             "<script src=\"path/to/url.js\"></script>",
             "<!-- or use the cdn",
-            "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/urljs/1.2.0/url.min.js\"></script>",
+            "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/urljs/2.6.1/url.min.js\"></script>",
             "-->",
             "<script>",
             "    Url.updateSearchParam(\"answer\", 42);",
