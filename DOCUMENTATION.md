@@ -6,7 +6,6 @@ You can see below the API reference of this module.
 Finds the value of parameter passed in first argument.
 
 #### Params
-
 - **String** `name`: The parameter name.
 - **Boolean** `notDecoded`: If `true`, the result will be encoded.
 
@@ -20,7 +19,6 @@ the parameter is there, but it doesn't have a value, the value will
 be `true`.
 
 #### Params
-
 - **String** `search`: An optional string that should be parsed (default: `window.location.search`).
 
 #### Return
@@ -30,7 +28,6 @@ be `true`.
 Stringifies a query object.
 
 #### Params
-
 - **Object** `queryObj`: The object that should be stringified.
 
 #### Return
@@ -40,7 +37,6 @@ Stringifies a query object.
 Adds, updates or deletes a parameter (without page refresh).
 
 #### Params
-
 - **String|Object** `param`: The parameter name or name-value pairs as object.
 - **String** `value`: The parameter value. If `undefined`, the parameter will be removed.
 - **Boolean** `push`: If `true`, the page will be kept in the history, otherwise the location will be changed but by pressing the back button
@@ -50,8 +46,11 @@ will not bring you to the old location.
 #### Return
 - **Url** The `Url` object.
 
-### `getLocation()`
+### `getLocation(excludeHash)`
 Returns the page url, but not including the domain name.
+
+#### Params
+- **Boolean** `excludeHash`: If `true`, the location hash will not be appended in the result.
 
 #### Return
 - **String** The page url (without domain).
@@ -60,7 +59,6 @@ Returns the page url, but not including the domain name.
 Sets/gets the hash value.
 
 #### Params
-
 - **String** `newHash`: The hash to set.
 - **Boolean** `triggerPopState`: Triggers the popstate handlers (by default falsly).
 
@@ -71,7 +69,6 @@ Sets/gets the hash value.
 Update the full url (pathname, search, hash).
 
 #### Params
-
 - **String** `s`: The new url to set.
 - **Boolean** `push`: If `true`, the page will be kept in the history, otherwise the location will be changed but by pressing the back button
 will not bring you to the old location.
@@ -85,7 +82,6 @@ pathname
 Sets/gets the pathname.
 
 #### Params
-
 - **String** `pathname`: The pathname to set.
 - **Boolean** `push`: If `true`, the page will be kept in the history, otherwise the location will be changed but by pressing the back button
 will not bring you to the old location.
@@ -101,14 +97,12 @@ Calls the popstate handlers.
 Adds a popstate handler.
 
 #### Params
-
 - **Function** `cb`: The callback function.
 
 ### `removeHash(push, trigger)`
 Removes the hash from the url.
 
 #### Params
-
 - **Boolean** `push`: If `true`, the page will be kept in the history, otherwise the location will be changed but by pressing the back button
 will not bring you to the old location.
 - **Boolean** `trigger`: Triggers the popstate handlers (by default falsly).
@@ -117,7 +111,6 @@ will not bring you to the old location.
 Removes the querystring parameters from the url.
 
 #### Params
-
 - **Boolean** `push`: If `true`, the page will be kept in the history, otherwise the location will be changed but by pressing the back button
 will not bring you to the old location.
 - **Boolean** `trigger`: Triggers the popstate handlers (by default falsly).
