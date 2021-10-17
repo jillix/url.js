@@ -9,7 +9,8 @@
   },
   "scripts": {
     "test": "node test",
-    "release": "browserify lib/index.js -s Url -o src/url.min.js && babel src/url.min.js | uglifyjs -c -m -o src/url.min.js"
+    "release": "npm run bundle | uglifyjs -c -m -o src/url.min.js",
+    "bundle": "browserify lib/index.js -s Url -o src/url.min.js && babel src/url.min.js"
   },
   "contributors": [
     "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
