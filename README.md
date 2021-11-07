@@ -83,7 +83,7 @@ The library is CommonJS-compatible. You can `require("url.js")` in your files.
 ## :cloud: Installation
 
 
-Check out the [`src`](/src) directory to download the needed files and include them on your page.
+Check out the [`dist`](/dist) directory to download the needed files and include them on your page.
 
 If you're using this module in a CommonJS environment, you can install it using `npm` or `yarn` and `require` it:
 
