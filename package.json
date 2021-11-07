@@ -1,6 +1,6 @@
 {
   "name": "urljs",
-  "version": "3.0.1",
+  "version": "2.7.0",
   "description": "A lightweight JavaScript library to manipulate the page url.",
   "main": "lib/index.js",
   "directories": {
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "node test",
-    "release": "npm run bundle | uglifyjs -c -m -o src/url.min.js",
+    "release": "npm run bundle --silent | uglifyjs -c -m -o src/url.min.js",
     "bundle": "browserify lib/index.js -s Url -o src/url.min.js && babel src/url.min.js"
   },
   "contributors": [
